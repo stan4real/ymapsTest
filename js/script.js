@@ -51,10 +51,9 @@
             strokeStyle: 'solid'
         });
         myMap.balloon.open([44.83068782938218,40.404725317691245], "Вспомогательные координаты [44.83068782938218,40.404725317691245]", {
-            // Опция: не показываем кнопку закрытия.
+            // Опция: показываем кнопку закрытия.
             closeButton: true
         });
-        //с = [44.82977166892336,40.38610005829184];
             // вычисляем точки полигона в глобальных координатах в функции 
             // данные для ввода (координаты центра, радиус в метрах, начало в PI, конец в PI)
             function CreateLine(c, r, a, t){
@@ -67,19 +66,18 @@
                 var type = t;
                 pointss.push(center);
                 
-                    pointss.push([
-                        center[0] + radius * Math.cos(angle),
-                        center[1] + radius * Math.sin(angle)
+                pointss.push([
+                    center[0] + radius * Math.cos(angle),
+                    center[1] + radius * Math.sin(angle)
                     ]);
                 // переводим глобальные координаты в широту-долготу
                 pointss = pointss.map(function (point) {
                 return projection.fromGlobalPixels(point, zoom);
                 });
-                console.log(pointss);
                 if(type == "shortdash"){
                 polygon = new ymaps.Polygon([pointss],{},{
                     strokeStyle: "shortdash"
-                }       );} 
+                });} 
                 else {
                 polygon = new ymaps.Polygon([pointss],{},{});
                 }
@@ -95,7 +93,6 @@
             var start = s;
             var end = e  ;
             var type = t;
-        
             var delta = end - start;
             var step = delta / precision;
         
@@ -108,12 +105,10 @@
             }
             //console.log(points);
             points.push(center);
-            
             // переводим глобальные координаты в широту-долготу
             points = points.map(function (point) {
                     return projection.fromGlobalPixels(point, zoom);
             });
-        
             polygon = new ymaps.Polygon([points],{
             
             },{
@@ -137,28 +132,23 @@
                     strokeStyle: 'solid'
                 });
                 myMap.geoObjects.add(line);
-                
-
-                    
-                
-            
             
         }}
-        var sa,ea,rad,lat,long;
-        document.querySelector('form').addEventListener('submit', (event) =>{
-            event.preventDefault();
-            const form = document.querySelector('form');
-            sa = (((form.elements.sa.value) / 360) * 2 * Math.PI)-Math.PI/2;
-            ea = (((form.elements.ea.value) / 360) * 2 * Math.PI)-Math.PI/2;
-            //ea = -(Math.PI / 2) - Math.PI/6;
-            rad = Number(form.elements.RadiuS.value);
-            lat = Number(form.elements.lat.value);
-            long= Number(form.elements.long.value);
-            collection = form.elements.type.value;
-            console.log(lat, long, rad, sa, ea , collection);
-            CreatePolygon([long,lat],rad,sa,ea,collection);
+        //Сбор данных с формы - функция не запускается с данными такого вида 
+        // var sa,ea,rad,lat,long;
+        // document.querySelector('form').addEventListener('submit', (event) =>{
+        //     event.preventDefault();
+        //     const form = document.querySelector('form');
+        //     sa = (((form.elements.sa.value) / 360) * 2 * Math.PI)-Math.PI/2;
+        //     ea = (((form.elements.ea.value) / 360) * 2 * Math.PI)-Math.PI/2;
+        //     //ea = -(Math.PI / 2) - Math.PI/6;
+        //     rad = Number(form.elements.RadiuS.value);
+        //     lat = Number(form.elements.lat.value);
+        //     long= Number(form.elements.long.value);
+        //     collection = form.elements.type.value;
+        //     console.log(lat, long, rad, sa, ea , collection);
+        //     CreatePolygon([long,lat],rad,sa,ea,collection);});
 
-        });
         //Запускаем функции по созданию полигона в виде круга без сектора
             CreatePolygon([44.82977166892336,40.38610005829184], 780, Math.PI / 2 + 0.2, 2 * Math.PI, "geoCollection" );
         //Запускаем функцию по созданию полигона в виде полукруга
