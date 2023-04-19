@@ -35,6 +35,7 @@ body{
     #map {
     width: 100vw;
     height: 95vh;
+    margin: none;
     }
     #main{
         width: 0;
