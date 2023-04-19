@@ -34,8 +34,7 @@ body{
 @media (min-width: 320px) and (max-width:900px) {
     #map {
     width: 100vw;
-    height: 100vh;
-    padding: 10px;
+    height: 95vh;
     }
     #main{
         width: 0;

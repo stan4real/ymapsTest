@@ -19,8 +19,8 @@
             type: 'yandex#satellite',
             
         },{
-                maxZoom: 16,
-                minZoom: 10
+                maxZoom: 15,
+                minZoom: 13
         });
         var geoCollection = new ymaps.GeoObjectCollection(null, {
             geodesic: true,
