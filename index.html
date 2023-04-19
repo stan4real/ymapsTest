@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link TYPE="text/css" REL="stylesheet" HREF="style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c248ce5c-8172-43cd-8283-5a84e1e3285d&lang=ru_RU" type="text/javascript">
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Oswald&display=swap" rel="stylesheet">
+    <script src="js/script.js" type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <container id="container">
+    <div id="map"></div>
+        
+    <form id = "main" align="center">
+        <div class="rad"><span>Что строим ?</span></br>
+        <input type="radio" name="type" id="krug" value="centrCollection">
+            <label for="krug">Центр</label>
+        <input type="radio" name="type" id="line" value="LineCollection">
+            <label for="line">Линию</label></br>
+        <input type ="radio" name="type" id="pie" value="inerCollection">
+            <label for ="pie">Сектор</label>
+        <input type ="radio" name="type" id="fig" value="geoCollection" checked>
+            <label for ="fig">Фигуру</label>  </div>  
+            <br>
+            <div class="rad">
+            <label for = "lat"> Широта  </label>
+        <input type="text" placeholder="55.12451231" name="lattitude" id="lat" value="40">
+            <label for = "long"> Долгота  </label>
+        <input type="text" placeholder="48.8123812" name="longitude" id="long" value="45">
+            <br>
+            <label for="radius">Радиус (м)</label>
+        <input type = "number" name="RadiuS" id="RadiuS" value="800">
+            <label for="sa"> Нач. угол</label>
+        <input type="text" placeholder="В радианах" name="start-angle" id="sa" value="Начальный угол">
+            <label for="ea"> Кон. угол</label>
+        <input type="text" placeholder="В радианах" name="end-angle" id="ea" value="Конечный угол"></br>
+        <input type="submit" name="submit" value="Отправить">
+    </div>
+    </form>
+    
+    </container>
+</body>
+</html>
