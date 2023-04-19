@@ -103,12 +103,12 @@
                 center[1] + radius * Math.sin(start + i)
             ]);
             }
-            //console.log(points);
             points.push(center);
             // переводим глобальные координаты в широту-долготу
             points = points.map(function (point) {
-                    return projection.fromGlobalPixels(point, zoom);
+                return projection.fromGlobalPixels(point, zoom);
             });
+            //console.log(points);
             polygon = new ymaps.Polygon([points],{
             
             },{
@@ -119,13 +119,13 @@
             } else if (type == "inerCollection") {
                 inerCollection.add(polygon);
                 //Добавляем закрашенную границу к секутору в круге
-                console.log(points);
+                //console.log(points);
                 var startif = points[0],
                     endif = points[points.length-2],
                     linecords =[];
                 linecords.push(startif);
                 linecords.push(endif);
-                console.log(linecords);
+                //console.log(linecords);
                 line = new ymaps.Polygon([linecords],{},{
                     strokeColor: 'e1ad01',
                     strokeWidth: 2,
@@ -153,7 +153,8 @@
             CreatePolygon([44.82977166892336,40.38610005829184], 780, Math.PI / 2 + 0.2, 2 * Math.PI, "geoCollection" );
         //Запускаем функцию по созданию полигона в виде полукруга
             CreatePolygon([44.810694835616054,40.37530095129757], 780, Math.PI , 2 * Math.PI, "geoCollection" );
-            
+            //Круг полигон
+            //CreatePolygon([44.82143555649848,40.39969959259032],780, 0, 2*Math.PI, "geoCollection");
             var circle = new ymaps.Circle([[44.82, 40.4], 810], {}, {    });
             
             //рисуем линии от центра
